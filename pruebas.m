@@ -4,4 +4,5 @@
 Settings;
 a=img2matrix('pin.png',Npaquetes);
 b=matrix2img(a);
-imshow(b);
+imshow(uint8(b));
+%imshowimshow(imread('pin.png'));
