@@ -10,3 +10,6 @@ vector = img2vector(imgR);
 
 matriz = vector2packet(vector, Npaquetes); %matriz donde cada fila contiene un paquete
 
+
+%ENVIAR TODOS LOS PAQUETES 
+
