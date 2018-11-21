@@ -11,15 +11,29 @@ vector = img2vector(imgR);
 matriz = vector2packet(vector, Npaquetes, row, col); %matriz donde cada fila contiene un paquete
 
 %%Create UDP Object
-udpT = udp(ipB,portB,'LocalPort',portA);
-udpT.OutputBufferSize = 10000000000
+udpA = udp(ipB,portB,'LocalPort',portA);
+udpA.OutputBufferSize = 10000000000
 %%Connect to UDP Object
-fopen(udpT);
+fopen(udpA);
 
 %ENVIAR TODOS LOS PAQUETES 
 
 for i=1:Npaquetes
-    fwrite(udpT, matriz(i,:) , 'uint8')
+    fwrite(udpA, matriz(i,:) , 'uint8')
     %pause;
 end
-fclose(udpT);
+fclose(udpA);
+
+%%Create UDP Object
+udpA = udp(ipC,portC,'LocalPort',portA);
+udpA.OutputBufferSize = 10000000000
+%%Connect to UDP Object
+fopen(udpA);
+
+%ENVIAR TODOS LOS PAQUETES 
+
+for i=1:Npaquetes
+    fwrite(udpA, matriz(i,:) , 'uint8')
+    %pause;
+end
+fclose(udpA);
