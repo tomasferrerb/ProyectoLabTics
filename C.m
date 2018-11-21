@@ -4,15 +4,16 @@ matriz=[];
 
 %Recibir paquetes 
 %Configurar puertos
-%
-%
-%
+
+udpC = udp(ipA,portA,'LocalPort',portC);
+udpC.InputBufferSize = 1000000;
+fopen(udpC);
 
 
 %Recibir paquetes y ordenar en matriz
 count=1;
 while 1:
-    fread(udpB,250,'uint8');
+    fread(udpC,250,'uint8');
     if count==1
         N=vec(1);
         row= vec(3);
