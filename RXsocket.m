@@ -1,8 +1,14 @@
-function vector = RXsocket(ipT,ipR, portT, portR)
+% Define computer-specific variables
+% Modify these values to be those of your first computer:
+ipA = '192.168.100.24';   portA = 9090;   
+% Modify these values to be those of your second computer:
+ipB = '192.168.100.22';  portB = 9091;  
+%%Create UDP Object
 
-    udpR = udp(ipT,portT,'LocalPort',portR);
-    udpR.InputBufferSize = 1000;
+udpB = udp(ipA,portA,'LocalPort',portB);
+udpB.InputBufferSize = 1000000;
 
-    %%Connect to UDP Object
-    fopen(udpR);
-    % fclose(udpB)
+%%Connect to UDP Object
+fopen(udpB);
+% fclose(udpB)
+% fread(udpB,250,'uint8') para leer!!
