@@ -4,7 +4,9 @@
 Settings;
 imgR= imread(img);
 [row,col,prof] = size(imgR);
-a= img2vector(imgR);
-b = vector2img(a,row,col);
+vector= img2vector(imgR);
+packet = vector2packet(vector, Npaquetes);
+vector2 = packet2vector(packet);
+b = vector2img(vector2,row,col);
 imshow(uint8(b));
 %imshowimshow(imread('pin.png'img));
