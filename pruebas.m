@@ -1,6 +1,4 @@
-% a=[1 2 3];
-% b=vector2bits(a);
-% c=sendAudio(b);a
+
 Settings;
 imgR= imread(img);
 [row,col,prof] = size(imgR);

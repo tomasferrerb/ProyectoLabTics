@@ -10,11 +10,15 @@ vector = img2vector(imgR);
 
 matriz = vector2packet(vector, Npaquetes); %matriz donde cada fila contiene un paquete
 
-
+%%Create UDP Object
+udpT = udp(ipB,portB,'LocalPort',portA);
+udpT.OutputBufferSize = 10000000000
+%%Connect to UDP Object
+fopen(udpT);
 %ENVIAR TODOS LOS PAQUETES 
 
 for i=1:Npaquetes
-    socket(ipA,ipB,portA,portB,matriz(i,:));
-    socket(ipA,ipC,portA,portC,matriz(i,:));
+    fwrite(udpT, matriz(i,:) , 'uint8')
+    %pause;
 end
-
+fclose(udpT);
