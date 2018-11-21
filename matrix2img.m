@@ -17,5 +17,7 @@ mR=reshape(vR,[rowI,colI]);
 mG=reshape(vG,[rowI,colI]);
 mB=reshape(vB,[rowI,colI]);
 
-image=[mR mG mB];
+image(:,:,1)=mR;
+image(:,:,2)=mG;
+image(:,:,3)=mB;
 end
