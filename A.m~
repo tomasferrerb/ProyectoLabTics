@@ -15,6 +15,6 @@ matriz = vector2packet(vector, Npaquetes); %matriz donde cada fila contiene un p
 
 for i=1:Npaquetes
     socket(ipA,ipB,portA,portB,matriz(i,:));
-    socket(ipA,ipC,portA,portC,matriz(i,:));
+    socket(ipA,ip
 end
 

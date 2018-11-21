@@ -27,3 +27,9 @@ s2=4500;
 s3=4750;
 s4=5000;
 
+ipA=
+ipB=
+ipC=
+portA=
+portB=
+portC=
