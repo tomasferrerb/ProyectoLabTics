@@ -2,32 +2,42 @@ Settings;
 
 matriz=[];
 
-%Recibir paquetes 
-%Configurar puertos
-
+Settings; 
+%%Create UDP Object
 udpB = udp(ipA,portA,'LocalPort',portB);
-udpB.InputBufferSize = 1000000;
+udpB.InputBufferSize = 10000000;
+%%Connect to UDP Object
 fopen(udpB);
+pause; 
+tic
+rx = fread(udpB, 255 , 'uint8').';
+Ns = rx(1);
+N = rx(1);
+rows = rx(3);
+cols = rx(4);
+
 
 %Recibir paquetes y ordenar en matriz
 count=1;
-while 1
-    vec=fread(udpB,250,'uint8');
-    if count==1
-        N=vec(1);
-        row= vec(3);
-        col=vec(4);
-    end
-    matriz(vec(2),:)=vec;
-    count=count+1;
-    if count==N
-        break
-    end
+while count < N
+    new = fread(udpB,255,'uint8').';
+    N = new(1);
+    row = new(3);
+    col = new(4);
+    Ns = cat(2,Ns,N);
+    rows = cat(2,rows,row);
+    cols = cat(2,cols,col);
+    rx = cat(1, rx, new);
+    N = mode(Ns);
+    row = mode(rows);
+    col = mode(cols);
+    count = new(2);
 end
+fclose(udpB);
+disp('Tiempo de transmisión')
+toc
 
-[vector row col] = packet2vector(matriz);
+[vector row col] = packet2vector(rx);
 image = vector2img(vector, row, col);
 
 imshow(uint8(image)); 
-
-

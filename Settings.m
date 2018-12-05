@@ -1,5 +1,5 @@
 fs=40e3; % sampleo
-Npaquetes=16;
+l_paquete=16;
 header_f = 0.3; % delta tiempo de duracion del header 
 info_size_f = 0.15; % delta tiempo por pixel 
 info_pixel_f = 0.175; % 0.35
@@ -27,9 +27,11 @@ s2=4500;
 s3=4750;
 s4=5000;
 % 
-ipA='10.20.2.203';
-ipB='10.20.2.175';
-ipC='10.20.2.195'
+ipA='169.254.117.141';
+ipA= '10.42.0.1';
+ipB='10.42.0.113';
+%ipB='169.254.117.142';
+ipC='169.254.117.142';
 portA= 9090;
 portB=9091;
 portC=9092;
