@@ -2,11 +2,8 @@
 function senal = sendAudio1(vector)%recibe vector de pixeles
 %envia vectores utilizando un canal
 Settings;
-pixel_dt = 0:1/fs:info_pixel_f; % aca, en frecs
 [row prof]=size(vector);
-
-%============================ Header del mensaje
-head_dt = 0:1/fs:header_f;
+%======= Header del mensaje
 header = [sin(2*pi*header1*head_dt), sin(2*pi*header2*head_dt), sin(2*pi*header3*head_dt)];
 senal = header;
 [row col] = size(vector); %1xn
@@ -40,7 +37,7 @@ plot(f, 2*abs(Y(1:NFFT/2+1)));
 xlabel('Frecuencia (Hz)') 
 ylabel('Amplitud')
 %save('audio.mat','senal');
-audiowrite('twitter.wav',senal,fs); 
+%audiowrite('twitter.wav',senal,fs); 
 disp('Send...')
 %bytes1 = unicode2native(str1)
 sound(senal, fs)
