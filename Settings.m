@@ -1,5 +1,5 @@
 fs=40e3; % sampleo
-l_paquete=16;
+l_paquete=128;
 header_f = 0.3; % delta tiempo de duracion del header 
 info_size_f = 0.15; % delta tiempo por pixel 
 info_pixel_f = 0.175; % 0.35
