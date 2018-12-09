@@ -15,11 +15,11 @@ count=1;
 total_datos=0;
 while 1
     vec=fread(udpC,250,'uint8');
-    if vec(1)==0:%PRIMER PAQUETE
+    if vec(1)==0%PRIMER PAQUETE
         row=vec(2);
         col=vec(3);
         N=vec(4);
-    elseif ~(vec(1)== N):        
+    elseif ~(vec(1)== N)    
         matriz(vec(1),:)=vec;
         count=count+1;
         total_datos=total_datos+vec(2);
