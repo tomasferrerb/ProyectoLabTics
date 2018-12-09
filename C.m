@@ -23,8 +23,11 @@ while 1
         matriz(vec(1),:)=vec;
         count=count+1;
         total_datos=total_datos+vec(2);
+    else
+        break
     end
 end
+fclose(udpC);
 
 vector  = packet2vector(matriz);
 image = vector2img(vector, row, col);
