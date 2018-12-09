@@ -50,5 +50,4 @@ PER=paquetes_erroneos/(N-1)
 
 vector  = packet2vector(matriz);
 image = vector2img(vector, row, col);
-BER=row*col*3-sum(sum(sum(matrizOriginal==image)))
 imshow(uint8(image)); 
