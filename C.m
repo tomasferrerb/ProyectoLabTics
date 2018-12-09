@@ -4,9 +4,9 @@ Settings;
 %%Abrir imagen para comparar errores 
 imgOriginal = imread(img);
 [rowC,colC,profC] = size(imgOriginal);
-vectorOriginal =image2vector(imgOriginal);
+vectorOriginal =img2vector(imgOriginal);
 matrizOriginal = vector2packet(vectorOriginal, l_paquete);
-packetes_erroneos=0; 
+paquetes_erroneos=0; 
 
 
 matriz=[];
@@ -43,12 +43,18 @@ while 1
     end
 end
 fclose(udpC);
-delay=tiempo_final
-goodput=8*total_datos/tiempo_final
-PER=paquetes_erroneos/(N-1)
+
+%%
+delay=tiempo_final;
+disp(['Delay = ' num2str(delay) '[s]'])
+goodput=8*total_datos/tiempo_final;
+disp(['Goodput = ' num2str(goodput/1000) '[kbps]'])
+PER=paquetes_erroneos/(N-1);
+disp(['PER = ' num2str(PER)])
 
 
 vector  = packet2vector(matriz);
 image = vector2img(vector, row, col);
-BER=row*col*3-sum(sum(sum(matrizOriginal==image)))
+BER=row*col*3-sum(sum(sum(imgOriginal==image)));
+disp(['BER = ' num2str(BER)])
 imshow(uint8(image)); 
