@@ -7,6 +7,7 @@ height =7.5;
 
 L_paquete = [8 16 32 64 128];
 x = [1 2 3 4 5];
+x_fec = x + 0.1;
 
 delay = [0.17275 0.11557 0.05831 0.038301 0.027681];
 delay_fec = [0.2 0.15 0.06 0.04 0.03];
@@ -34,7 +35,7 @@ f1.PaperPositionMode='auto';
 subplot(4,1,1)
 stem(x,delay)
 hold on
-stem(x,delay_fec)
+stem(x_fec,delay_fec)
 legend('Location','northeast')
 legend('Sin FEC','Con FEC')
 title('Delay','FontSize',12)
@@ -46,7 +47,7 @@ ylim([0 max(dd)])
 subplot(4,1,2)
 stem(x,goodput)
 hold on
-stem(x,goodput_fec)
+stem(x_fec,goodput_fec)
 legend('Location','northeast')
 legend('Sin FEC','Con FEC')
 title('Goodput','FontSize',12)
@@ -58,7 +59,7 @@ ylim([0 max(gg)])
 subplot(4,1,3)
 stem(x,PER)
 hold on
-stem(x,PER_fec)
+stem(x_fec,PER_fec)
 legend('Location','northeast')
 legend('Sin FEC','Con FEC')
 title('PER','FontSize',12)
@@ -69,7 +70,7 @@ ylim([0 max(pp)+0.1])
 subplot(4,1,4)
 stem(x,BER)
 hold on
-stem(x,BER_fec)
+stem(x_fec,BER_fec)
 legend('Location','northeast')
 legend('Sin FEC','Con FEC')
 title('BER','FontSize',12)
