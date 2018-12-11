@@ -1,6 +1,6 @@
 clc
 clear
-settings;
+Settings;
 
 signal=[];
 
