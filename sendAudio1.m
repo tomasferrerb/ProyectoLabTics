@@ -2,11 +2,17 @@
 function senal = sendAudio1(vector)%recibe vector de pixeles
 %envia vectores utilizando un canal
 Settings;
+xSettings;
 [row prof]=size(vector);
 %======= Header del mensaje
 header = [sin(2*pi*header1*head_dt), sin(2*pi*header2*head_dt), sin(2*pi*header3*head_dt)];
 senal = header;
 [row col] = size(vector); %1xn
+%============================ Codificar la dimension de la imagen
+size_dt = 0:1/fs:info_size_f;
+header = sin(2*pi*(0)*size_dt)+ sin(2*pi*(0)*size_dt)+ sin(2*pi*(0)*size_dt); %modulacion de tres frecs
+senal = [senal, header];% fusion de ambas
+
 for j=1:col
     px = vector(1,j);% sacar el pixel como un vector de doubles RGB
     px = double(px); 
